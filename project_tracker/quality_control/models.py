@@ -33,6 +33,7 @@ class FeatureRequest(models.Model):
     title = models.CharField(max_length=255)
     description = models.TextField()
     project = models.ForeignKey(Project, on_delete=models.CASCADE)
+    task = models.ForeignKey(Task, on_delete=models.SET_NULL, null=True)
     status = models.CharField(
         max_length=50,
         choices=STATUS_CHOICES,
