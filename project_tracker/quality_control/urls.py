@@ -11,5 +11,9 @@ urlpatterns = [
     path('features/<int:feature_id>/', views.FeatureRequestDetailView.as_view(), name='feature_detail'),
     path('bugs/new/', views.bug_report_create, name='bug_report_create'),
     path('features/new/', views.feature_request_create, name='feature_request_create'),
+    path('bugs/<int:bug_id>/update/', views.update_bug, name='update_bug'),
+    path('features/<int:feature_id>/update/', views.update_feature, name='update_feature'),
+    path('bugs/<int:bug_id>/delete/', views.delete_bug, name='delete_bug'),
+    path('features/<int:feature_id>/delete/', views.delete_feature, name='delete_feature'),
     # path('', views.IndexView.as_view(), name='index') # Аналогичная главная страница, но с использованием CBV
 ]

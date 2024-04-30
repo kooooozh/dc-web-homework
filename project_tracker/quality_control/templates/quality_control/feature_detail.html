@@ -1,11 +1,13 @@
 {% extends 'base/base.html' %}
 
 {% block title %}
-Детали улучшения {{ feature.id }}
+Детали запроса {{ feature.id }}
 {% endblock %}
 
 {% block content %}
-    <h1>Детали улучшения {{ feature.id }}</h1>
+    <a href="{% url 'quality_control:update_feature' feature.id %}">Изменить запрос</a>
+    <a href="{% url 'quality_control:delete_feature' feature.id %}"onclick="return confirm('Вы уверены, что хотите удалить этот запрос?');">Удалить запрос</a>
+    <h1>Детали запроса {{ feature.id }}</h1>
     <p>Название: {{ feature.title }}</p>
     <p>Описание: {{ feature.description }}</p>
     <p>Проект: {{ feature.project }}</p>

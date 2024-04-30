@@ -7,7 +7,7 @@
 {% block content %}
     <h1>Список запросов на улучшение</h1>
 
-    <p><a href="{% url 'quality_control:feature_request_create' %}">Новое предложение</a></p>
+    <p><a href="{% url 'quality_control:feature_request_create' %}">Новый запрос</a></p>
 
     {% for feature in feature_list %}
         <p>{{ feature.title }} - {{ feature.status }}</p>
