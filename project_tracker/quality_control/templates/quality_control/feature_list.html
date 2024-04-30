@@ -1,13 +1,16 @@
 {% extends 'base/base.html' %}
 
 {% block title %}
-Список запросов на улучшение
+    Список запросов на улучшение
 {% endblock %}
 
 {% block content %}
-<h1>Список запросов на улучшение</h1>
-{% for feature in feature_list %}
-    <p>{{ feature.title }} - {{ feature.status }}</p>
-    <a href="/quality_control/features/{{ feature.id }}/">{{ feature.title }}</a>
-{% endfor %}
+    <h1>Список запросов на улучшение</h1>
+
+    <p><a href="{% url 'quality_control:feature_request_create' %}">Новое предложение</a></p>
+
+    {% for feature in feature_list %}
+        <p>{{ feature.title }} - {{ feature.status }}</p>
+        <a href="/quality_control/features/{{ feature.id }}/">{{ feature.title }}</a>
+    {% endfor %}
 {% endblock %}

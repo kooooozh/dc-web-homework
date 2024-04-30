@@ -1,13 +1,16 @@
 {% extends 'base/base.html' %}
 
 {% block title %}
-Список отчетов об ошибках
+    Список отчетов об ошибках
 {% endblock %}
 
 {% block content %}
-<h1>Список отчетов об ошибках</h1>
-{% for bug in bug_list %}
-    <p>{{ bug.title }} - {{ bug.status }}</p>
-    <a href="/quality_control/bugs/{{ bug.id }}/">{{ bug.title }}</a>
-{% endfor %}
+    <h1>Список отчетов об ошибках</h1>
+
+    <p><a href="{% url 'quality_control:bug_report_create' %}">Сообщить о новом баге</a></p>
+
+    {% for bug in bug_list %}
+        <p>{{ bug.title }} - {{ bug.status }}</p>
+        <a href="/quality_control/bugs/{{ bug.id }}/">{{ bug.title }}</a>
+    {% endfor %}
 {% endblock %}

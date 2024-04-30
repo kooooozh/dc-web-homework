@@ -15,13 +15,29 @@ class BugReportAdmin(admin.ModelAdmin):
 
     actions = ['change_status']
 
-    def change_status(self, request, queryset):
+    def change_status_completed(self, request, queryset):
         new_status = request.POST.get('new_status', 'Completed')
         for bug_report in queryset:
             bug_report.status = new_status
             bug_report.save()
 
-    change_status.short_description = 'Change status to "Completed"'
+    change_status_completed.short_description = 'Change status to "Completed"'
+
+    def change_status_new(self, request, queryset):
+        new_status = request.POST.get('new_status', 'New')
+        for bug_report in queryset:
+            bug_report.status = new_status
+            bug_report.save()
+
+    change_status_new.short_description = 'Change status to "New"'
+
+    def change_status_progress(self, request, queryset):
+        new_status = request.POST.get('new_status', 'In_progress')
+        for bug_report in queryset:
+            bug_report.status = new_status
+            bug_report.save()
+
+    change_status_progress.short_description = 'Change status to "In_progress"'
 
 
 # Класс администратора для модели FeatureRequest

@@ -9,5 +9,7 @@ urlpatterns = [
     path('features/', views.feature_list, name='feature_list'),
     path('bugs/<int:bug_id>/', views.BugReportDetailView.as_view(), name='bug_detail'),
     path('features/<int:feature_id>/', views.FeatureRequestDetailView.as_view(), name='feature_detail'),
+    path('bugs/new/', views.bug_report_create, name='bug_report_create'),
+    path('features/new/', views.feature_request_create, name='feature_request_create'),
     # path('', views.IndexView.as_view(), name='index') # Аналогичная главная страница, но с использованием CBV
 ]
